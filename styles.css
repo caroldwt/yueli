@@ -16,3 +16,21 @@
 @media(max-width:650px){.ocr-field{grid-template-columns:minmax(0,1fr);gap:8px;margin:18px 0;font-size:11px}.ocr-toggle{gap:9px}.ocr-field>input:not([type=checkbox]){font-size:16px;width:100%;min-height:42px;padding:10px;max-width:100%}.ocr-review{min-width:0}.ocr-date-choices{display:flex;flex-wrap:wrap;align-items:center;gap:4px}.ocr-date-choices>span{flex-basis:100%}}
 
 .record-credit,.record-source{font-size:11px;line-height:1.8;color:var(--muted);overflow-wrap:anywhere}.record-credit{margin:12px 0 0}.record-source{display:inline-block;margin-top:8px;color:var(--blue);text-underline-offset:3px}@media(max-width:650px){.record-credit,.record-source{font-size:10px}}
+
+/* iPhone form controls must keep a readable focus size and fit their track. */
+@media(max-width:650px){
+ body:has(dialog[open]){overflow:hidden;overscroll-behavior:none}
+ dialog{width:calc(100% - 24px);max-width:calc(100% - 24px);min-width:0;max-height:calc(100dvh - 24px);padding:22px 18px;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;touch-action:pan-y pinch-zoom;scroll-padding-block:18px;-webkit-overflow-scrolling:touch}
+ dialog form,dialog fieldset,dialog label,dialog .upload-section,dialog .ocr-controls{min-width:0;max-width:100%}
+ dialog input:not([type=checkbox]):not([type=radio]),dialog select,dialog textarea{font-size:16px;line-height:1.5;min-width:0;min-inline-size:0;max-width:100%;width:100%;box-sizing:border-box;scroll-margin-block:18px}
+ dialog input:not([type=checkbox]):not([type=radio]),dialog select{min-height:46px}
+ dialog input::placeholder,dialog textarea::placeholder{font-size:14px}
+ dialog .form-two-columns{grid-template-columns:minmax(0,1fr);gap:0}
+ dialog input[type=date],dialog input[type=time]{display:block;appearance:none;-webkit-appearance:none;text-align:left;padding:11px 12px}
+ dialog input::-webkit-date-and-time-value{min-width:0;text-align:left}
+ dialog .field-help,dialog .ocr-warning{overflow-wrap:anywhere}
+ dialog .upload-section input[type=file],dialog .backup-import input[type=file],dialog .ocr-file-label input[type=file]{font-size:16px;overflow:hidden}
+ dialog .upload-preview{width:100%;min-width:0}
+ dialog .upload-preview img{width:auto;max-width:100%;height:auto;max-height:220px}
+ dialog .collection-options input,dialog .import-modes input{padding:0;min-width:0;min-height:0}
+}
